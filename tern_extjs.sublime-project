@@ -4,5 +4,11 @@
             "path": ".",
             "follow_symlinks": true
         }
+    ],
+    "build_systems": [
+        {
+            "name": "killall node",
+            "shell_cmd": "killall node"
+        }
     ]
 }

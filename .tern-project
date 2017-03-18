@@ -1,5 +1,9 @@
 {
+    "libs": [
+    ],
     "plugins": {
+        "doc_comment": {},
+        "tern": {},
         "tern_extjs": {}
     }
 }
