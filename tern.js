@@ -174,13 +174,17 @@
                     "!proto": "infer.ANull"
                 }
             },
-            "Prim": { // todo
-                "!type": "fn()",
+            "parse": "fn(text: string, options: ?)", // todo
+            "Prim": {
+                "!type": "fn(proto: +infer.AVal, name: string)",
                 "prototype": {
-                    "!proto": "infer.ANull"
+                    "!proto": "infer.Type.prototype",
+                    "getProp": "fn(prop: string) -> infer.ANull", // correct return type missing
+                    "name": "string",
+                    "proto": "+infer.AVal",
+                    "toString": "fn() -> string"
                 }
             },
-            "parse": "fn(text: string, options: ?)", // todo
             "PropHasSubset": {
                 "!type": "infer.DefProp"
             },
