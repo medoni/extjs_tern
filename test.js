@@ -4,5 +4,5 @@
 // var x = new infer.AVal();
 // x.
 
-var y = new infer.PropHasSubset(prop, type, originNode);
-y
+var y = new infer.IsCallee();
+y.propagatesTo().target.

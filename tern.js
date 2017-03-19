@@ -21,6 +21,10 @@
     var defs = {
         "!name": "tern",
         "!define": {
+            "IsCallee_propagatesTo_return": {
+                "target": 'infer.ANull',
+                "pathExt": "string"
+            },
             "PluginOptions": {
             },
             "registerPlugin_options": {
@@ -39,13 +43,13 @@
                 "text": "string"
             }
         },
-        "Acorn": {
+        "acorn": {
             "Node": {
-                "!type": "fn(parser: +Acorn.Parser, pos: number, loc: ?)",
+                "!type": "fn(parser: +acorn.Parser, pos: number, loc: ?)",
                 "prototype": {
                     "end": "number",
                     "loc": "?",
-                    "sourceFile": "+Acorn.SourceFile",
+                    "sourceFile": "+acorn.SourceFile",
                     "range": "number[]",
                     "start": "number",
                     "type": "string"
@@ -107,11 +111,11 @@
                 }
             },
             "DefProp": {
-                "!type": "fn(prop: string, type: +infer.Type, originNode: +Acorn.Node)",
+                "!type": "fn(prop: string, type: +infer.Type, originNode: +acorn.Node)",
                 "prototype": {
                     "!proto": "infer.ANull",
                     "addType": "fn(type: +infer.Type, weight: number)",
-                    "originNode": "+Acorn.Node",
+                    "originNode": "+acorn.Node",
                     "prop": "string",
                     "propHint": "fn() -> infer.DefProp",
                     "type": "+infer.Type"
@@ -121,6 +125,19 @@
                 "!type": "fn()",
                 "prototype": {
                     "!proto": "infer.ANull"
+                }
+            },
+            "IsCallee": {
+                "!type": "fn(self: +infer.Obj, args: [+infer.ANull], argNodes: [+acorn.Node], retval: +infer.ANull)",
+                "prototype": {
+                    "!proto": "infer.ANull",
+                    "addType": "fn(f: +infer.Fn, weight: number)",
+                    "args": "[+infer.ANull]", 
+                    "argNodes": "[+acorn.Node]", 
+                    "propagatesTo": "fn() -> IsCallee_propagatesTo_return",                    
+                    "retval": "+infer.ANull",
+                    "self": "+infer.Obj",
+                    "typeHint": "fn() -> +infer.Fn"
                 }
             },
             "Obj": { // todo
