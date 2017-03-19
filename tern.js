@@ -117,7 +117,7 @@
                     "addType": "fn(type: +infer.Type, weight: number)",
                     "originNode": "+acorn.Node",
                     "prop": "string",
-                    "propHint": "fn() -> infer.DefProp",
+                    "propHint": "fn() -> +infer.DefProp",
                     "type": "+infer.Type"
                 }
             },
@@ -127,6 +127,7 @@
                     "!proto": "infer.ANull"
                 }
             },
+            "getInstance": "fn(obj: +infer.Obj, ctor: +infer.Fn) -> +infer.Obj",
             "IsCallee": {
                 "!type": "fn(self: +infer.Obj, args: [+infer.ANull], argNodes: [+acorn.Node], retval: +infer.ANull)",
                 "prototype": {
@@ -161,7 +162,7 @@
                     "!proto": "infer.ANull"
                 }
             },
-            "parse": "fn(text: string, options: ?)",
+            "parse": "fn(text: string, options: ?)", // todo
             "PropHasSubset": {
                 "!type": "infer.DefProp"
             },
