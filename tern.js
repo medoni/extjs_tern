@@ -202,7 +202,12 @@
             "Type": {
                 "!type": "fn()",
                 "prototype": {
-
+                    "!proto": "infer.ANull",
+                    "getType": "fn() -> +infer.Type",
+                    "hasType": "fn(other: infer.ANull) -> bool",
+                    "isEmpty": "fn() -> bool",
+                    "propagate": "fn(c: infer.ANull, w: number)",
+                    "typeHint": "fn() -> +infer.Type"
                 }
             }
 
