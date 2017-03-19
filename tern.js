@@ -140,6 +140,15 @@
                     "typeHint": "fn() -> +infer.Fn"
                 }
             },
+            "IsCtor": {
+                "!type": "fn(target: +infer.AVal, noReuse: bool)",
+                "prototype": {
+                    "!proto": "infer.ANull",
+                    "addType": "fn(f: +infer.Fn, weight: number)",
+                    "noReuse": "bool",
+                    "target": "+infer.AVal"
+                }
+            },
             "Obj": { // todo
                 "!type": "fn()",
                 "prototype": {

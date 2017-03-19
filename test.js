@@ -5,4 +5,4 @@
 // x.
 
 var y = new infer.IsCallee();
-y.propagatesTo().target.
+y.propagatesTo().target
