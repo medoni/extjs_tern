@@ -22,7 +22,6 @@
         "!name": "tern",
         "!define": {
             "PluginOptions": {
-                "x": "number"
             },
             "registerPlugin_options": {
                 "!type": "fn(server: tern, options: PluginOptions) -> registerPlugin_return"
@@ -40,38 +39,120 @@
                 "text": "string"
             }
         },
+        "Acorn": {
+            "Node": {
+                "!type": "fn(parser: +Acorn.Parser, pos: number, loc: ?)",
+                "prototype": {
+                    "end": "number",
+                    "loc": "?",
+                    "sourceFile": "+Acorn.SourceFile",
+                    "range": "number[]",
+                    "start": "number",
+                    "type": "string"
+                }
+            },
+            "Parser": {
+                "!type": "fn()",
+                "prototype": {
+                }
+            },
+            "SourceFile": {
+                "!type": "fn()",
+                "prototype": {                    
+                }
+            }
+        },
         "AST": {
-            "foo": "number"
+            "!type": "fn()",
+            "prototype": {
+
+            }
         },
         "infer": {
             "ANull": {
                 "addType": "fn(type: +infer.Type, weight: number)",
-                "forAllProps": "fn(c: ?)",
-                "gatherProperties": "fn()",
-                "getFunctionType": "fn()",
-                "getObjType": "fn()",
-                "getProp": "fn(prop: infer.ANull) -> infer.ANull",
-                "getSymbolType": "fn()",
-                "getType": "fn()",
+                "forAllProps": "fn(c: ?)", // todo type
+                "gatherProperties": "fn(f: fn(prop: string, owner: infer.ANull, depth: number), depth: number)",
+                "getFunctionType": "fn() -> +infer.Fn",
+                "getObjType": "fn() -> +infer.Obj",
+                "getProp": "fn(prop: string) -> infer.ANull", // todo correct type missing
+                "getSymbolType": "fn() -> +infer.Sym",
+                "getType": "fn(guess: bool) -> +infer.Type",
                 "hasType": "fn(type: +infer.Type) -> bool",
                 "isEmpty": "fn() -> bool",
                 "on": "fn(type: string, f: fn())",
                 "propagate": "fn(target: infer.ANull, weight: number)",
-                "propagatesTo": "fn()",
+                "propagatesTo": "fn() -> infer.ANull",
                 "propHint": "fn()",
-                "toString": "fn() -> string",
-                "typeHint": "fn()"
+                "toString": "fn(maxDepth: number, parent: ANull) -> string",
+                "typeHint": "fn() -> typeHint"
             },
             "AVal": {
                 "!type": "fn()",            
                 "prototype": {
                     "!proto": "infer.ANull",
-                    "forward": "?",
+                    "forward": "?", // todo
+                    "guessProperties": "fn(f: fn(prop: string, owner: infer.ANull, depth: number))",
                     "maxWeight": "number",
+                    "makeupPropType": "fn(obj: infer.ANull) -> +infer.Type",
+                    "makeupType": "fn(+infer.Type)",
+                    "propagatesTo": "fn() -> +infer.AVal",
                     "types": "[+infer.Type]"
                 }
             },
+            "constraint": "fn(methods: object) -> infer.ANull", // todo, the passed methods are mixed in dynamic ANull instance
+            "Context": { // todo
+                "!type": "fn()",
+                "prototype": {
+                }
+            },
+            "DefProp": {
+                "!type": "fn(prop: string, type: +infer.Type, originNode: +Acorn.Node)",
+                "prototype": {
+                    "!proto": "infer.ANull",
+                    "addType": "fn(type: +infer.Type, weight: number)",
+                    "originNode": "+Acorn.Node",
+                    "prop": "string",
+                    "propHint": "fn() -> infer.DefProp",
+                    "type": "+infer.Type"
+                }
+            },
+            "Fn": { // todo
+                "!type": "fn()",
+                "prototype": {
+                    "!proto": "infer.ANull"
+                }
+            },
+            "Obj": { // todo
+                "!type": "fn()",
+                "prototype": {
+                    "!proto": "infer.ANull"
+                }
+            },
+            "Prim": { // todo
+                "!type": "fn()",
+                "prototype": {
+                    "!proto": "infer.ANull"
+                }
+            },
             "parse": "fn(text: string, options: ?)",
+            "PropHasSubset": {
+                "!type": "infer.DefProp"
+            },
+            "Sym": { // todo
+                "!type": "fn()",
+                "prototype": {
+                    "!proto": "infer.ANull"
+                }
+            },
+            "simplifyTypes": "fn(types: [+infer.Type]) -> [+infer.Type]",
+            "Scope": {
+                "!type": "fn()", 
+                "prototype": {
+                    // todo
+                }
+            },
+            "scopeAt": "fn(ast: +AST, pos: number, defaultScope: +infer.Scope) -> +infer.Scope",
             "toString": "fn(type: ?, maxDepth: number, parent: ?) -> string",
             "Type": {
                 "!type": "fn()",
@@ -79,6 +160,8 @@
 
                 }
             }
+
+            
         },
         "signal": {
             "mixin": "fn(obj: ?)",
