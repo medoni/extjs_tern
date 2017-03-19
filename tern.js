@@ -128,6 +128,15 @@
                 }
             },
             "getInstance": "fn(obj: +infer.Obj, ctor: +infer.Fn) -> +infer.Obj",
+            "IfObj": {
+                "!type": "fn(target: infer.ANull)",
+                "prototype": {
+                    "!proto": "infer.ANull",
+                    "addType": "fn(t: +infer.Obj, weight: number)",
+                    "propagatesTo": "fn() -> +infer.IfObj",
+                    "target": "infer.ANull"
+                }
+            },
             "IsCallee": {
                 "!type": "fn(self: +infer.Obj, args: [+infer.ANull], argNodes: [+acorn.Node], retval: +infer.ANull)",
                 "prototype": {

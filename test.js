@@ -1,7 +1,5 @@
 // var x = new MyConstructor();
 // x
 
-// var x = new infer.AVal();
-// x.
-
-infer.getInstance().
+var x = new infer.IsProto().addType();
+x.
