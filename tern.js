@@ -168,10 +168,29 @@
                     "target": "+infer.AVal"
                 }
             },
-            "Obj": { // todo
+            "Obj": {
+                "!type": "fn(proto: +infer.AVal, name: string)",
+                "prototype": {
+                    "!proto": "infer.Type.prototype",
+                    "broadcastProp": "fn(prop: string, val: +infer.AVal, local: bool)",
+                    "defProp": "fn(prop: string, originNode: +acorn.Node) -> infer.AVal",
+                    "getProp": "fn(prop: string) -> +acorn.Node",
+                    "hasProp": "fn(prop: string, searchProto?: bool) -> +infer.AVal",
+                    "maybeProps": "object",
+                    "name": "string",
+                    "normalizeIntegerProp": "fn(num: number) -> string",
+                    "onProtoProp": "fn(prop: string, val: +infer.AVal, local: bool)",
+                    "origin": "+infer.Origin",
+                    "props": "object",
+                    "proto": "+infer.AVal",
+                    "replaceProto": "fn(proto: +infer.AVal)",
+                    "toString": "fn(maxDepth: number) -> string"
+                }
+            },
+            "Origin": { // todo
                 "!type": "fn()",
                 "prototype": {
-                    "!proto": "infer.ANull"
+
                 }
             },
             "parse": "fn(text: string, options: ?)", // todo
