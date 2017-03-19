@@ -150,6 +150,15 @@
                     "target": "+infer.AVal"
                 }
             },
+            "IsProto": {
+                "!type": "fn(ctor: +infer.Fn, target: +infer.AVal)",
+                "prototype": {
+                    "!proto": "infer.ANull",
+                    "addType": "fn(o: +infer.Obj)",
+                    "ctor": "+infer.Fn", 
+                    "target": "+infer.AVal"
+                }
+            },
             "Obj": { // todo
                 "!type": "fn()",
                 "prototype": {

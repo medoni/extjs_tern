@@ -4,4 +4,4 @@
 // var x = new infer.AVal();
 // x.
 
-var y = new infer.get
+infer.getInstance().
